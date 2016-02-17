@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!~/usr/bin/python
 # -*- coding: utf-8 -*-
 
 ## IMPORTANDO MODULOS ##
@@ -8,7 +8,7 @@ import Queue
 import urllib2
 import os
 import time
-from bs4 import BeautifulSoup
+import BeautifulSoup
 from termcolor import colored
 
 print colored("""
@@ -28,6 +28,14 @@ print colored("3. Coleta de Links", 'yellow', attrs=['bold'])
 print colored("4. Decrypt MD5", 'yellow', attrs=['bold'])
 print colored("5. Sair", 'yellow', attrs=['bold'])
 print
+
+def striped(text, colors):
+    color = True
+    for k,v in text:
+        color = not color
+        print colored(k, colors[int(color)], attrs=['bold'])
+        color = not color
+        print colored(v, colors[int(color)], attrs=['bold'])
 
 option = raw_input("Digite a Opção: ")
 
@@ -60,8 +68,10 @@ if option == '1':
         code = test.status_code
         if code == 200:
             print
-            print colored("=================[*CONCLUÍDO*]=================", 'blue', attrs=['bold'])
-            print colored("USER [*] %s  SENHA [*] %s", 'yellow', attrs=['bold']) % (username, password)
+            print colored("=================[*CONCLUÍDO*]=================",
+                          'blue', attrs=['bold'])
+            print colored("USER [*] %s  SENHA [*] %s",
+                          'yellow', attrs=['bold']) % (username, password)
 
         else:
             pass
@@ -74,26 +84,16 @@ elif option == '2':
     get = requests.get("http://ip-api.com/json/" + alvo)
     json = json.loads(get.content)
 
-    ip  = json['query']
-    pais = json['country']
-    estado = json['regionName']
-    cidade = json['city']
-    latitude = json['lat']
-    longitude = json['lon']
+    list_param = []
+    list_param.append(['Alvo:', json['query']])
+    list_param.append(['Pais:', json['country']])
+    list_param.append(['Estado:', json['regionName']])
+    list_param.append(['Cidade:', json['city']])
+    list_param.append(['Latitude:', json['lat']])
+    list_param.append(['Longitude:', json['lon']])
 
     ## Exibindo informações
-    print colored("Alvo: ", 'red', attrs=['bold'])
-    print colored(ip, 'blue', attrs=['bold'])
-    print colored("Pais: ", 'red', attrs=['bold'])
-    print colored(pais, 'blue', attrs=['bold'])
-    print colored("Estado: ", 'red', attrs=['bold'])
-    print colored(estado, 'blue', attrs=['bold'])
-    print colored("Cidade: ", 'red', attrs=['bold'])
-    print colored(cidade, 'blue', attrs=['bold'])
-    print colored("Latitude: ", 'red', attrs=['bold'])
-    print colored(latitude, 'blue', attrs=['bold'])
-    print colored("Longitude: ", 'red', attrs=['bold'])
-    print colored(longitude, 'blue', attrs=['bold'])
+    striped(list_param, ['red', 'blue'])
     print
 
 elif option == '3':
@@ -138,3 +138,4 @@ else:
     print colored("ADEUS!", 'blue', attrs=['bold'])
     time.sleep(2)
     os.system('reset')
+
