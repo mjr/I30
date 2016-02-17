@@ -2,17 +2,17 @@
 
 # Grupo SegInfoBR(telegram): https://goo.gl/7cwoCE 
 
-- Dependências
+    - Dependências
 
-    Request
-    Json
-    Queue
-    Urllib2
-    BeautifulSoup
-    Colored
-    
-- Instruções
-    $ pip install -r requerements.txt
+        - Request
+        - Json
+        - Queue
+        - Urllib2
+        - BeautifulSoup
+        - Colored
+        
+    - Instruções
+       - $ pip install -r requerements.txt
 
 # Sobre
 
