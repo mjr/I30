@@ -8,7 +8,7 @@ import Queue
 import urllib2
 import os
 import time
-import BeautifulSoup
+from bs4 import BeautifulSoup
 from termcolor import colored
 
 print colored("""
