@@ -1,4 +1,4 @@
-# I30 - Editado por outro Noob
+# I30 - Feito por um Noob - Editado por outro Noob
 
 # Grupo SegInfoBR(telegram): https://goo.gl/7cwoCE 
 
