@@ -1,21 +1,18 @@
-# I30 - Feito por um Noob
+# I30 - Editado por outro Noob
 
 # Grupo SegInfoBR(telegram): https://goo.gl/7cwoCE 
 
 - Dependências
 
-    Request       - $ pip install request
+    Request
+    Json
+    Queue
+    Urllib2
+    BeautifulSoup
+    Colored
     
-    Json          - $ pip install json
-    
-    Queue         - $ pip install queue
-    
-    Urllib2       - $ pip install urllib2
-    
-    BeautifulSoup - $ pip install bs4
-    
-    Colored       - $ pip install colored
-    
+- Instruções
+    $ pip install -r requerements.txt
 
 # Sobre
 
