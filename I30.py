@@ -98,14 +98,11 @@ elif option == '2':
 
 elif option == '3':
     url = raw_input('Digite a URL: ')
-    robo = url + '/robots.txt'
 
     request = urllib2.urlopen(url)
     html = request.read()
 
     soup = BeautifulSoup(html)
-
-    print colored("LINK => %s", 'red', attrs=['bold']) % robo
 
     for link in soup.find_all('link'):
         pag = link.get('href')
