@@ -27,7 +27,7 @@ print colored("2. IP Location", 'yellow', attrs=['bold'])
 print colored("3. Search Links", 'yellow', attrs=['bold'])
 print colored("4. Decrypt MD5", 'yellow', attrs=['bold'])
 print colored("5. Find SubDomain", 'yellow', attrs=['bold'])
-print colored("8. Sair", 'yellow', attrs=['bold'])
+print colored("6. Sair", 'yellow', attrs=['bold'])
 print
 
 def striped(text, colors):
