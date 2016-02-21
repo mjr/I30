@@ -26,7 +26,8 @@ print colored("1. Brute Force Router", 'yellow', attrs=['bold'])
 print colored("2. IP Location", 'yellow', attrs=['bold'])
 print colored("3. Search Links", 'yellow', attrs=['bold'])
 print colored("4. Decrypt MD5", 'yellow', attrs=['bold'])
-print colored("5. Sair", 'yellow', attrs=['bold'])
+print colored("5. Find SubDomain", 'yellow', attrs=['bold'])
+print colored("8. Sair", 'yellow', attrs=['bold'])
 print
 
 def striped(text, colors):
@@ -39,7 +40,7 @@ def striped(text, colors):
 
 option = raw_input("Inform a Option: ")
 
-## Brute Force
+## Brute Force Router
 if option == '1':
     alvo     = raw_input("Target IP: ")
     username = raw_input("Username: ")
@@ -76,7 +77,7 @@ if option == '1':
         else:
             print colored("=================[*FAIL*]=================",'red', attrs=['bold'])
 
-## GeoIP
+## IP Location
 elif option == '2':
 
     alvo = raw_input("Target IP: ")
@@ -96,6 +97,7 @@ elif option == '2':
     striped(list_param, ['red', 'blue'])
     print
 
+## Search Links
 elif option == '3':
     url = raw_input('Target URL: ')
 
@@ -119,6 +121,7 @@ elif option == '3':
         else:
             pass
 
+## MD5 Decrypt
 elif option == '4':
     md5 = raw_input("Hash MD5: ")
     api = 'http://md5.gromweb.com/query/%s' % md5
@@ -131,6 +134,58 @@ elif option == '4':
     print colored("Result", 'red', attrs=['bold'])
     print colored(resul, 'blue', attrs=['bold'])
 
+## Find Subdomain
+elif option == '5':
+    def subdominio(site):
+        try:
+            request = requests.get(site)
+
+            if request.status_code == 200:
+                print colored("Find Subdomain %s", 'blue', attrs=['bold']) % site
+
+            else:
+                print colored("Subdomain Not Found %s", 'yellow', attrs=['bold']) % site
+
+        except:
+            print colored("Subdomain Not Found %s", 'yellow', attrs=['bold']) % site
+
+    def regex(lista, site):
+        if 'www' in site:
+            if site[:8] == 'https://':
+                site = site[:8]+lista+site[12:]
+                subdominio(site)
+
+            elif site[:7] == 'http://':
+                site = site[:7]+lista+site[11:]
+
+            else:
+                print "Use https:// or http://"
+
+        else:
+            if site[:8] == 'https://':
+                site = site[:8]+lista+site[8:]
+                subdominio(site)
+
+            elif site[:7] == 'http://':
+                site = site[:7]+lista+site[7:]
+                subdominio(site)
+
+            else:
+                print "Use https:// or http://"
+
+    def inicio():
+        word = 'subdominios.txt'
+        site = raw_input("Target URL: ")
+
+        word = open(word, 'rw').readlines()
+
+        for l in word:
+            l = l.replace('\n', '').replace('\t', '')
+            regex(l, site)
+
+    inicio()
+
+## Saida
 else:
     print colored("BYE...\n", 'blue', attrs=['bold'])
     time.sleep(2)
