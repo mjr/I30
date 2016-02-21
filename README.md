@@ -52,6 +52,13 @@
 
 
 
+# Admin Finder
+
+    - Digite a URL da Página que deseja (Ex: http://testphp.vulnweb.com/)
+    - OBS: A Barra Deve Ser Inserida no Final
+
+
+
 # Decrypt MD5
 
     - Digite a Hash MD5 que deseja Descriptografar (Ex: 3e45af4ca27ea2b03fc6183af40ea112) 
