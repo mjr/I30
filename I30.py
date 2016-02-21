@@ -190,4 +190,3 @@ else:
     print colored("BYE...\n", 'blue', attrs=['bold'])
     time.sleep(2)
     os.system('reset')
-

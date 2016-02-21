@@ -17,8 +17,8 @@
 # Sobre
 
     Script feto para facilitar algumas tarefas como Brute Force em roteadores,
-    Localização de um IP, Coletar Links de um site e Descriptografar Hash MD5
-    com o banco de dados do site md5.gromweb.com.
+    Localização de um IP, Coletar Links de um site,Coletar Subdominios de um site
+    e Descriptografar Hash MD5 com o banco de dados do site md5.gromweb.com.
     
     
     
@@ -45,7 +45,13 @@
     
     
     
-   
+# Find Subdomain
+
+    - Digite a URL do Alvo (Ex: https://google.com)
+
+
+
+
 # Decrypt MD5
 
     - Digite a Hash MD5 que deseja Descriptografar (Ex: 3e45af4ca27ea2b03fc6183af40ea112) 
