@@ -27,7 +27,8 @@ print colored("2. IP Location", 'yellow', attrs=['bold'])
 print colored("3. Search Links", 'yellow', attrs=['bold'])
 print colored("4. Decrypt MD5", 'yellow', attrs=['bold'])
 print colored("5. Find SubDomain", 'yellow', attrs=['bold'])
-print colored("6. Sair", 'yellow', attrs=['bold'])
+print colored("6. Admin Finder", 'yellow', attrs=['bold'])
+print colored("7. Sair", 'yellow', attrs=['bold'])
 print
 
 def striped(text, colors):
@@ -63,7 +64,6 @@ if option == '1':
     i = 0
     while not queue.empty():
         password = queue.get()
-        i = i + 1
 
         test = requests.get('http://' + alvo, auth=(username, password))
         code = test.status_code
@@ -184,6 +184,21 @@ elif option == '5':
             regex(l, site)
 
     inicio()
+
+elif option == '6':
+    lista = 'admin.txt'
+    lista = open(lista, 'rw').readlines()
+
+    alvo = raw_input("Target URL: ")
+
+
+    for i in lista:
+        i = i.replace('\n', '').replace('\n', '')
+        request = requests.get(alvo+i)
+
+        if request.status_code == 200:
+            print colored("Login Page Found: %s%s", 'blue', attrs=['bold']) % (alvo, i)
+            pass
 
 ## Saida
 else:
