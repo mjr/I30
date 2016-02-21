@@ -43,7 +43,7 @@ option = raw_input("Inform a Option: ")
 if option == '1':
     alvo     = raw_input("Target IP: ")
     username = raw_input("Username: ")
-    passlist = raw_input("Worlist: ")
+    passlist = raw_input("Wordlist: ")
 
     try:
         global fd
