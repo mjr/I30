@@ -63,6 +63,7 @@ if option == '1':
 
     i = 0
     while not queue.empty():
+        i = i + 1
         password = queue.get()
 
         test = requests.get('http://' + alvo, auth=(username, password))
@@ -73,9 +74,10 @@ if option == '1':
                           'blue', attrs=['bold'])
             print colored("USER [*] %s  SENHA [*] %s",
                           'yellow', attrs=['bold']) % (username, password)
+            break
 
         else:
-            print colored("=================[*FAIL*]=================",'red', attrs=['bold'])
+            print colored("{%s} USER [%s] SENHA [%s]",'red', attrs=['bold']) % (i, username, password)
 
 ## IP Location
 elif option == '2':
